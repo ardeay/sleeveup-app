@@ -8,7 +8,8 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng server",
-    "preinstall": "typings install -g",
+    "preinstall": "npm i typings -g",
+    "postinstall": "typings install",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
