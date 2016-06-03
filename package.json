@@ -2,6 +2,9 @@
   "name": "sleeveup",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "4.2.5"
+  },
   "angular-cli": {},
   "scripts": {
     "start": "ng server",
