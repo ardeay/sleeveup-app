@@ -7,7 +7,7 @@
   },
   "angular-cli": {},
   "scripts": {
-    "start": "ng server",
+    "start": "npm start",
     "preinstall": "npm i typings -g",
     "postinstall": "typings install",
     "lint": "tslint \"src/**/*.ts\"",
