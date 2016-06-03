@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-    "node": "4.2.5"
+    "node": "5.11.0"
   },
   "angular-cli": {},
   "scripts": {
     "start": "ng server",
-    "postinstall": "typings install",
+    "postinstall": "typings install -g",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
