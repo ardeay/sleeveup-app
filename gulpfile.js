@@ -95,6 +95,14 @@ gulp.task('webserver', function() {
     });
 });
 
+gulp.task('serveprod', function() {
+  connect.server({
+    root: 'dist',
+    port: process.env.PORT || 5000,
+    livereload: false
+  });
+});
+
 gulp.task('livereload', function() {
     gulp.src(['dist/**/*.*'])
         .pipe(watch(['dist/**/*.*']))
