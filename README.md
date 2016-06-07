@@ -1,6 +1,8 @@
 # Sleeve Up
 ## Magic: The Gathering deck editing application
 
+Create, test, and fine-tune the deck of your dreams using SleeveUp and [echomtg](https://www.echomtg.com)
+
 ## Usage
 ### Requirements
 * [NodeJS](http://nodejs.org/) (with [NPM](https://www.npmjs.org/))
@@ -23,4 +25,4 @@ Continue developing SleeveUp further by editing the `src` directory. With the `g
 By default, SleeveUp includes [`ui.bootstrap`](http://angular-ui.github.io/bootstrap/), [`ui.router`](https://github.com/angular-ui/ui-router) and [`ngCookies`](https://docs.angularjs.org/api/ngCookies).
 
 ## Credits
-* Build using [RDash rdash-angular]https://github.com/rdash/rdash-angular/)
+* Build using [RDash rdash-angular](https://github.com/rdash/rdash-angular/)
