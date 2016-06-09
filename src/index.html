@@ -1,137 +1,75 @@
-<!doctype html>
-<html lang="en" ng-app="RDash">
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>SleeveUp</title>
-  <!-- STYLES -->
-  <!-- build:css lib/css/main.min.css -->
-  <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
+  <meta charset="utf-8" />
+  <title>Angular version | Angulr</title>
+  <meta name="description" content="Angularjs, Html5, Music, Landing, 4 in 1 ui kits package" />
+  <meta name="keywords" content="AngularJS, angular, bootstrap, admin, dashboard, panel, app, charts, components,flat, responsive, layout, kit, ui, route, web, app, widgets" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+  
+  <!-- build:css css/app.min.css -->
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
   <!-- endbuild -->
-  <!-- SCRIPTS -->
-  <!-- build:js lib/js/main.min.js -->
-  <script type="text/javascript" src="components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script type="text/javascript" src="components/angular-cookies/angular-cookies.min.js"></script>
-  <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <!-- endbuild -->
-  <!-- Custom Scripts -->
-  <script type="text/javascript" src="js/dashboard.min.js"></script>
 </head>
-<body ng-controller="MasterCtrl">
-  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+<body ng-controller="AppCtrl">
+  <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <ul class="sidebar">
-        <li class="sidebar-main">
-          <a ng-click="toggleSidebar()">
-            Dashboard
-            <span class="menu-icon glyphicon glyphicon-transfer"></span>
-          </a>
-        </li>
-        <li class="sidebar-title"><span>NAVIGATION</span></li>
-        <li class="sidebar-list">
-          <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
-        </li>
-        <li class="sidebar-list">
-          <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
-        </li>
-      </ul>
-      <div class="sidebar-footer">
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular" target="_blank">
-            Github
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular/blob/master/README.md" target="_blank">
-            About
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="#">
-            Support
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- End Sidebar -->
+<!-- build:js js/app.angular.js -->
+  <!-- jQuery -->
+  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+  <!-- Bootstrap -->
+  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 
-    <div id="content-wrapper">
-      <div class="page-content">
+  <!-- Angular -->
+  <script src="../libs/angular/angular/angular.js"></script>
+  
+  <script src="../libs/angular/angular-animate/angular-animate.js"></script>
+  <script src="../libs/angular/angular-aria/angular-aria.js"></script>
+  <script src="../libs/angular/angular-cookies/angular-cookies.js"></script>
+  <script src="../libs/angular/angular-messages/angular-messages.js"></script>
+  <script src="../libs/angular/angular-resource/angular-resource.js"></script>
+  <script src="../libs/angular/angular-sanitize/angular-sanitize.js"></script>
+  <script src="../libs/angular/angular-touch/angular-touch.js"></script>
+  
+  <script src="../libs/angular/angular-ui-router/release/angular-ui-router.js"></script> 
+  <script src="../libs/angular/ngstorage/ngStorage.js"></script>
+  <script src="../libs/angular/angular-ui-utils/ui-utils.js"></script>
 
-        <!-- Header Bar -->
-        <div class="row header">
-          <div class="col-xs-12">
-            <div class="user pull-right">
-              <div class="item dropdown" uib-dropdown>
-                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <img src="img/avatar.jpg">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    Joe Bloggs
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a href="#">
-                      Profile
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a href="#">
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="item dropdown" uib-dropdown>
-               <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <i class="fa fa-bell-o"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    Notifications
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#">Server Down!</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="meta">
-              <div class="page">
-                Dashboard
-              </div>
-              <div class="breadcrumb-links">
-                Home / Dashboard
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Header Bar -->
+  <!-- bootstrap -->
+  <script src="../libs/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- lazyload -->
+  <script src="../libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+  <!-- translate -->
+  <script src="../libs/angular/angular-translate/angular-translate.js"></script>
+  <script src="../libs/angular/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+  <script src="../libs/angular/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+  <script src="../libs/angular/angular-translate-storage-local/angular-translate-storage-local.js"></script>
 
-        <!-- Main Content -->
-        <div ui-view></div>
-
-      </div><!-- End Page Content -->
-    </div><!-- End Content Wrapper -->
-  </div><!-- End Page Wrapper -->
+  <!-- App -->
+  <script src="js/app.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/config.lazyload.js"></script>
+  <script src="js/config.router.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/services/ui-load.js"></script>
+  <script src="js/filters/fromNow.js"></script>
+  <script src="js/directives/setnganimate.js"></script>
+  <script src="js/directives/ui-butterbar.js"></script>
+  <script src="js/directives/ui-focus.js"></script>
+  <script src="js/directives/ui-fullscreen.js"></script>
+  <script src="js/directives/ui-jq.js"></script>
+  <script src="js/directives/ui-module.js"></script>
+  <script src="js/directives/ui-nav.js"></script>
+  <script src="js/directives/ui-scroll.js"></script>
+  <script src="js/directives/ui-shift.js"></script>
+  <script src="js/directives/ui-toggleclass.js"></script>
+  <script src="js/controllers/bootstrap.js"></script>
+<!-- endbuild -->
+  <!-- Lazy loading -->
 </body>
 </html>
