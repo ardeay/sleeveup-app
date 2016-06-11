@@ -38,13 +38,16 @@ angular.module('app')
         }
       }
 
+      var userObject = localStorage.getObject('usermeta');
+      console.log(userObject);
+
       if ( angular.isDefined($localStorage.token) ) {
         $scope.app.user = {
           username: $localStorage.username,
           avatar:  $localStorage.avatar
         }
       } else {
-        $state.go('access.signin');
+        $state.go('access.signin')
       }
 
       // save settings to local storage

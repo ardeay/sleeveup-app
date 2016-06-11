@@ -17,7 +17,6 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStor
                 app: 'sleeveup'
             }
         }) .then(function(response) {
-            console.log(response);
             if (response.data && response.data.token) {
                 var token = response.data.token;
                 $http({
