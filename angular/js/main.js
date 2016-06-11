@@ -41,7 +41,6 @@ angular.module('app')
 
       if ( angular.isDefined($localStorage.token) ) {
         var userObject = localStorage.getObject('usermeta');
-
         $scope.app.user = userObject;
       } else {
         $state.go('access.signin')
