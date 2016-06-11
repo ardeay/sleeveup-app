@@ -1,6 +1,6 @@
 module.exports = {
-  html: ['angular/index.html','angular/material.html'],
+  html: ['dist/index.html','dist/material.html'],
   options: {
-    dest: 'angular'
+    dest: 'dist'
   }
 }

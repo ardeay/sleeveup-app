@@ -47,12 +47,13 @@ module.exports = {
                     'videogular-poster/poster.min.js',
                     'videogular-ima-ads/ima-ads.min.js'
                 ],
-                dest: 'libs/angular',
+                dest: 'dist/libs/angular',
                 cwd:  'bower_components',
                 expand: true
             },
             {
                 src:  [
+                    'jquery.sparkline/dist/jquery.sparkline.retina.js',
                     'jquery/dist/jquery.js',
                     'bootstrap/dist/**',
                     'datatables/media/js/jquery.dataTables.min.js',
@@ -81,14 +82,15 @@ module.exports = {
                     'bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css',
                     'bootstrap-wysiwyg/bootstrap-wysiwyg.js',
                     'bootstrap-wysiwyg/external/jquery.hotkeys.js',
-                    'fullcalendar/dist/fullcalendar.min.js',
+                    'fullcalendar/dist/*.js',
+                    'fullcalendar/dist/*.css',
                     'bootstrap-daterangepicker/daterangepicker.js',
                     'bootstrap-daterangepicker/daterangepicker-bs3.css',
                     'bootstrap-tagsinput/dist/bootstrap-tagsinput.js',
                     'bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
                     'jquery_appear/jquery.appear.js'
                 ],
-                dest: 'libs/jquery',
+                dest: 'dist/libs/jquery',
                 cwd:  'bower_components',
                 expand: true
             },
@@ -101,16 +103,16 @@ module.exports = {
                     'simple-line-icons/fonts/**',
                     'bootstrap-rtl/dist/css/bootstrap-rtl.min.css'
                 ],
-                dest: 'libs/assets',
+                dest: 'dist/libs/assets',
                 cwd:  'bower_components',
                 expand: true
             },
             {src: '**', cwd: 'bower_components/bootstrap/dist/fonts', dest: 'src/fonts', expand: true}
         ]
     },
-    angular: {
+    dist: {
         files: [
-            {expand: true, src: ['**', '!**/less/**'], cwd: 'src/',   dest: "angular/"}
+            {expand: true, src: ['**', '!**/less/**'], cwd: 'src/',   dest: "dist/"}
         ]
     },
     html: {
