@@ -4,6 +4,10 @@
 app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStorage', function($scope, $http, $state, $localStorage) {
     $scope.user = {};
     $scope.authError = null;
+    // log user out
+    localStorage.clear();
+    delete $scope.app.user;
+
     $scope.signup = function() {
 
         $scope.authError = null;
