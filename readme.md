@@ -1,6 +1,6 @@
 # Sleeve Up App
 
-### A Magic: The Gathering deck building application using (https://www.echomtg.com)[echomtg API]
+### A Magic: The Gathering deck building application using https://www.echomtg.com
 
 ## Installation
 
