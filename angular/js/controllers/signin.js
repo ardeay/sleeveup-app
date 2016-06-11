@@ -2,7 +2,7 @@
 
 /* Controllers */
   // signin controller
-app.controller('SigninFormController', ['$scope', '$http', '$state', function($scope, $http, $state) {
+app.controller('SigninFormController', ['$scope', '$http', '$state', '$cookies', function($scope, $http, $state, $cookies) {
     $scope.user = {};
     $scope.authError = null;
     $scope.login = function() {
@@ -17,10 +17,31 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', function($s
        }
       })
       .then(function(response) {
-        console.log("booyeah", response)
-      }, function(x) {
+        if (response.data && response.data.token) {
+          var token = response.data.token;
+          $http({
+           url: 'http://dev.echomtg.com/api/user/meta/',
+           method: "GET",
+           params: {
+             auth: token
+           }
+          })
+          .then(function(response) {
+            setCookie(token, response.data.user);
+            $state.go('app.dashboard-v1');
+          })
+        }
+      }, function(response) {
         $scope.authError = 'Server Error';
       });
     };
+    
+    var setCookie = function (token, meta) {
+      $cookies.put('token', token);
+      for (var key in meta) {
+        $cookies.put(key, meta[key]);
+      }
+    };
+    
   }])
 ;
