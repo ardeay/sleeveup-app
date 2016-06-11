@@ -16,7 +16,12 @@
 "aside" : {
   "nav" : {
     "HEADER" : "Navigation",
-    "DASHBOARD" : "Armaturenbrett",
+        "DECKS" : "Decks",
+        "MY_DECKS" : "My Decks",
+        "STANDARD_DECKS" : "Standard Decks",
+        "MODERN_DECKS" : "Modern Decks",
+        "LEGACY_DECKS" : "Legacy Decks",
+        "DASHBOARD" : "Armaturenbrett",
     "CALENDAR" : "Kalender",
     "EMAIL" : "E-Mail",
     "WIDGETS" : "Widgets",

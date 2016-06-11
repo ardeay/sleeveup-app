@@ -41,7 +41,7 @@ angular.module('app')
 
       // login logic function
       $scope.isLoggedIn= function() {
-        return ((typeof($scope.app.user) == undefined) || $scope.app.user == null) ? false : true;
+        return ((typeof(localStorage.auth_token) == undefined) || localStorage.auth_token== null) ? false : true;
       }
 
       // login check
@@ -51,6 +51,8 @@ angular.module('app')
       } else {
         $state.go('access.signin')
       }
+
+
 
       // checks if the user is a contributor
       // this will show or not show contributor specific navigation
