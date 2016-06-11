@@ -4,20 +4,20 @@
   -->
   <div class="navi-wrap">
     <!-- user -->
-    <div class="clearfix hidden-xs text-center hide" id="aside-user">
+    <div ng-if="isLoggedIn()" class="clearfix hidden-xs text-center" id="aside-user">
       <div class="dropdown wrapper" dropdown>
         <a ui-sref="app.page.profile">
           <span class="thumb-lg w-auto-folded avatar m-t-sm">
-            <img src="img/a0.jpg" class="img-full" alt="...">
+            <img src="{{app.user.avatar}}" class="img-full" alt="{{app.user.username}}">
           </span>
         </a>
         <a href class="dropdown-toggle hidden-folded" dropdown-toggle>
           <span class="clear">
             <span class="block m-t-sm">
-              <strong class="font-bold text-lt">John.Smith</strong> 
+              <strong class="font-bold text-lt">{{app.user.username}}</strong>
               <b class="caret"></b>
             </span>
-            <span class="text-muted text-xs block">Art Director</span>
+            <span class="text-muted text-xs block">{{app.user.plan}}</span>
           </span>
         </a>
         <!-- dropdown -->

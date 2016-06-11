@@ -39,15 +39,12 @@ angular.module('app')
       }
 
 
-
-
-
-
-
+      // login logic function
       $scope.isLoggedIn= function() {
         return ((typeof($scope.app.user) == undefined) || $scope.app.user == null) ? false : true;
       }
 
+      // login check
       if ( $scope.isLoggedIn() )  {
         var userObject = localStorage.getObject('usermeta');
         $scope.app.user = userObject;
@@ -55,6 +52,8 @@ angular.module('app')
         $state.go('access.signin')
       }
 
+      // checks if the user is a contributor
+      // this will show or not show contributor specific navigation
       $scope.isContributor= function() {
         if(!$scope.isLoggedIn() ) {
           return false;
@@ -66,8 +65,6 @@ angular.module('app')
 
       }
 
-      console.log($scope.app.user);
-      console.log($scope.isContributor() );
 
       // save settings to local storage
       if ( angular.isDefined($localStorage.settings) ) {
