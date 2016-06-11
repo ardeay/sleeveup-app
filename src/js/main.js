@@ -39,12 +39,35 @@ angular.module('app')
       }
 
 
-      if ( angular.isDefined($localStorage.token) ) {
+
+
+
+
+
+      $scope.isLoggedIn= function() {
+        return ((typeof($scope.app.user) == undefined) || $scope.app.user == null) ? false : true;
+      }
+
+      if ( $scope.isLoggedIn() )  {
         var userObject = localStorage.getObject('usermeta');
         $scope.app.user = userObject;
       } else {
         $state.go('access.signin')
       }
+
+      $scope.isContributor= function() {
+        if(!$scope.isLoggedIn() ) {
+          return false;
+        } else if($scope.app.user.contributor >= 1) {
+          return true;
+        } else {
+          return false;
+        }
+
+      }
+
+      console.log($scope.app.user);
+      console.log($scope.isContributor() );
 
       // save settings to local storage
       if ( angular.isDefined($localStorage.settings) ) {
