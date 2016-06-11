@@ -5,8 +5,9 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStor
     $scope.user = {};
     $scope.authError = null;
     $scope.signup = function() {
-      $scope.authError = null;
-      // Try to create new user
+
+        $scope.authError = null;
+        // Try to create new user
         $http({
             url: 'https://www.echomtg.com/api/user/register/',
             method: "POST",
@@ -26,7 +27,11 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStor
                         auth: token
                     }
                 }).then(function(response) {
-                    setCookie(token, response.data.user);
+                    // set variable locally
+                    $localStorage.token = token;
+                    // uses custom function that extends the local storage base functionality
+                    localStorage.setObject('usermeta',response.data.user);
+                    $scope.app.user = response.data.user;
                     $state.go('app.dashboard-v1');
                 })
             }
@@ -35,11 +40,4 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStor
         });
     };
 
-    var setCookie = function (token, meta) {
-        $localStorage.token = token;
-        $localStorage.username = meta['username'];
-        $localStorage.avatar = meta['avatar'];
-
-    };
-
-  }]);
+}]);

@@ -3,6 +3,10 @@
 /* Controllers */
   // signin controller
 app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStorage', function($scope, $http, $state, $localStorage) {
+    //sign out the user
+    localStorage.clear();
+
+    // setup user object
     $scope.user = {};
     $scope.authError = null;
     $scope.login = function() {
@@ -28,15 +32,12 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStor
            }
           })
           .then(function(response) {
-              // set variable locally
-
+              // set variable locally for quick access
               $localStorage.token = token;
+              // uses custom function that extends the local storage base functionality
               localStorage.setObject('usermeta',response.data.user);
-              $localStorage.username = response.data.user.username;
-              $localStorage.avatar = response.data.user.avatar;
-
-
-            $state.go('app.dashboard-v1');
+              $scope.app.user = response.data.user;
+              $state.go('app.dashboard-v1');
           })
         }
       }, function(response) {
