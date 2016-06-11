@@ -20,7 +20,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$cookies',
         if (response.data && response.data.token) {
           var token = response.data.token;
           $http({
-           url: 'http://dev.echomtg.com/api/user/meta/',
+           url: 'https://www.echomtg.com/api/user/meta/',
            method: "GET",
            params: {
              auth: token
