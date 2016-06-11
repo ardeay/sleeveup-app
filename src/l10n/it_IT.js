@@ -16,6 +16,11 @@
 "aside" : {
   "nav" : {
     "HEADER" : "Navigazione",
+            "DECKS" : "Decks",
+        "MY_DECKS" : "My Decks",
+        "STANDARD_DECKS" : "Standard Decks",
+        "MODERN_DECKS" : "Modern Decks",
+        "LEGACY_DECKS" : "Legacy Decks",
     "DASHBOARD" : "Cruscotto",
     "CALENDAR" : "Calendario",
     "EMAIL" : "Email",
