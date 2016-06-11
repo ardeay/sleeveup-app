@@ -1,6 +1,6 @@
 
 npm-debug.log
-
+certs/
 bower_components/
 node_modules/
 .idea/
