@@ -2,7 +2,7 @@
 
 /* Controllers */
   // signin controller
-app.controller('SigninFormController', ['$scope', '$http', '$state', '$cookies', function($scope, $http, $state, $cookies) {
+app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStorage', function($scope, $http, $state, $localStorage) {
     $scope.user = {};
     $scope.authError = null;
     $scope.login = function() {
@@ -13,7 +13,8 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$cookies',
        method: "POST",
        params: {
          email: $scope.user.email,
-         password: $scope.user.password
+         password: $scope.user.password,
+           app: 'sleeveup'
        }
       })
       .then(function(response) {
@@ -32,15 +33,16 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$cookies',
           })
         }
       }, function(response) {
-        $scope.authError = 'Server Error';
+        $scope.authError = response.message;
       });
     };
     
     var setCookie = function (token, meta) {
-      $cookies.put('token', token);
-      for (var key in meta) {
-        $cookies.put(key, meta[key]);
-      }
+        $localStorage.token = token;
+
+        $localStorage.username = meta['username'];
+        $localStorage.avatar = meta['avatar'];
+
     };
     
   }])

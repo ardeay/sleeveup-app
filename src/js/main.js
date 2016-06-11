@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', 
-    function(              $scope,   $translate,   $localStorage,   $window ) {
+  .controller('AppCtrl', ['$scope', '$translate', '$state', '$localStorage', '$window',
+    function(              $scope,   $translate,   $state, $localStorage,   $window) {
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       if(isIE){ angular.element($window.document.body).addClass('ie');}
@@ -12,8 +12,8 @@ angular.module('app')
 
       // config
       $scope.app = {
-        name: 'Angulr',
-        version: '2.2.0',
+        name: 'SleeveUp',
+        version: '0.0.3',
         // for chart colors
         color: {
           primary: '#7266ba',
@@ -36,6 +36,17 @@ angular.module('app')
           asideDock: false,
           container: false
         }
+      }
+
+      console.log($localStorage.token);
+
+      if ( angular.isDefined($localStorage.token) ) {
+        $scope.app.user = {
+          username: $localStorage.username,
+          avatar:  $localStorage.avatar
+        }
+      } else {
+        $state.go('access.signin');
       }
 
       // save settings to local storage

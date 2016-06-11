@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+
 	var gtx = require('gruntfile-gtx').wrap(grunt);
 
     gtx.loadAuto();
