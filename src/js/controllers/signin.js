@@ -8,13 +8,16 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', function($s
     $scope.login = function() {
       $scope.authError = null;
       // Try to login
-      $http.post('api/login', {email: $scope.user.email, password: $scope.user.password})
+      $http({
+       url: 'https://www.echomtg.com/api/user/auth/', 
+       method: "POST",
+       params: {
+         email: $scope.user.email,
+         password: $scope.user.password
+       }
+      })
       .then(function(response) {
-        if ( !response.data.user ) {
-          $scope.authError = 'Email or Password not right';
-        }else{
-          $state.go('app.dashboard-v1');
-        }
+        console.log("booyeah", response)
       }, function(x) {
         $scope.authError = 'Server Error';
       });
