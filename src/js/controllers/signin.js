@@ -31,9 +31,9 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStor
               // set variable locally
 
               $localStorage.token = token;
-              localStorage.setObject('usermeta',esponse.user);
-              $localStorage.username = response.user.username;
-              $localStorage.avatar = response.user.avatar;
+              localStorage.setObject('usermeta',response.data.user);
+              $localStorage.username = response.data.user.username;
+              $localStorage.avatar = response.data.user.avatar;
 
 
             $state.go('app.dashboard-v1');

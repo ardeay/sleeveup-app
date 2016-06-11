@@ -38,14 +38,11 @@ angular.module('app')
         }
       }
 
-      var userObject = localStorage.getObject('usermeta');
-      console.log(userObject);
 
       if ( angular.isDefined($localStorage.token) ) {
-        $scope.app.user = {
-          username: $localStorage.username,
-          avatar:  $localStorage.avatar
-        }
+        var userObject = localStorage.getObject('usermeta');
+
+        $scope.app.user = userObject;
       } else {
         $state.go('access.signin')
       }

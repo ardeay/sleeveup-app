@@ -28,7 +28,14 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStor
            }
           })
           .then(function(response) {
-            setCookie(token, response.data.user);
+              // set variable locally
+
+              $localStorage.token = token;
+              localStorage.setObject('usermeta',response.data.user);
+              $localStorage.username = response.data.user.username;
+              $localStorage.avatar = response.data.user.avatar;
+
+
             $state.go('app.dashboard-v1');
           })
         }
@@ -36,14 +43,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStor
         $scope.authError = response.message;
       });
     };
-    
-    var setCookie = function (token, meta) {
-        $localStorage.token = token;
 
-        $localStorage.username = meta['username'];
-        $localStorage.avatar = meta['avatar'];
-
-    };
     
   }])
 ;
