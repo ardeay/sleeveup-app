@@ -1,5 +1,5 @@
 module.exports = {
-  angular: ['angular/*'],
+  dist: ['dist/*'],
   html: ['html/*'],
   tmp: ['.tmp']
 };
