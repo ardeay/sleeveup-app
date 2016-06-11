@@ -38,8 +38,6 @@ angular.module('app')
         }
       }
 
-      console.log($localStorage.token);
-
       if ( angular.isDefined($localStorage.token) ) {
         $scope.app.user = {
           username: $localStorage.username,
