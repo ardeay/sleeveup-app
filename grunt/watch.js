@@ -1,6 +1,6 @@
 module.exports = {
   less: {
-	  files: ['src/css/less/*.less'],
-	  tasks: ['recess'],
+	  files: ['src/**/*.less', 'src/**/*.js', 'src/**/*.html'],
+	  tasks: ['recess', 'newer:htmlmin'],
   }
 }
