@@ -21,7 +21,7 @@
     "EMAIL" : "Email",
     "WIDGETS" : "Widgets",
     "components" : {
-      "COMPONENTS" : "Components",
+      "COMPONENTS" : "Contributor Tools: Level",
       "ui_kits" : {
         "UI_KITS" : "UI Kits",
         "BUTTONS" : "Buttons",

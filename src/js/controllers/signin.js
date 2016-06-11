@@ -5,6 +5,7 @@
 app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStorage', function($scope, $http, $state, $localStorage) {
     //sign out the user
     localStorage.clear();
+    delete $scope.app.user;
 
     // setup user object
     $scope.user = {};
