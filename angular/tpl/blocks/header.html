@@ -189,13 +189,13 @@
           <li class="hidden-xs">
             <a ui-fullscreen></a>
           </li>
-          <li class="dropdown" dropdown>
+          <!--<li class="dropdown" dropdown>
             <a href class="dropdown-toggle" dropdown-toggle>
               <i class="icon-bell fa-fw"></i>
               <span class="visible-xs-inline">Notifications</span>
               <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
             </a>
-            <!-- dropdown -->
+
             <div class="dropdown-menu w-xl animated fadeInUp">
               <div class="panel bg-white">
                 <div class="panel-heading b-light bg-light">
@@ -224,9 +224,15 @@
                 </div>
               </div>
             </div>
-            <!-- / dropdown -->
+
+          </li> -->
+          <li ng-if="!isLoggedIn()">
+            <a ui-sref="access.signin"><i class="icon-login"></i> Login</a>
           </li>
-          <li class="dropdown" dropdown>
+          <li  ng-if="!isLoggedIn()">
+            <a class="btn btn-primary" ui-sref="access.signup"><i class="icon-user-follow"></i> Create Account</a>
+          </li>
+          <li ng-if="isLoggedIn()" class="dropdown" dropdown>
             <a href class="dropdown-toggle clear" dropdown-toggle>
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
                 <img src="{{app.user.avatar}}" alt="{{app.user.username}} avatar">

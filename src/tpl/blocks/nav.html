@@ -82,12 +82,12 @@
     </ul>
   </li>
 
-  <li class="line dk"></li>
+  <li ng-if="isContributor()" class="line dk"></li>
 
-  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-    <span translate="aside.nav.components.COMPONENTS">Components</span>
+  <li ng-if="isContributor()" class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span translate="aside.nav.components.COMPONENTS">Contributor Tools: Level</span> {{app.user.contributor}}
   </li>
-  <li>
+  <li ng-if="isContributor()">
     <a href class="auto">      
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>
@@ -120,7 +120,7 @@
       </li>      
     </ul>
   </li>
-  <li ng-class="{active:$state.includes('app.ui')}">
+  <li ng-if="isContributor()" ng-class="{active:$state.includes('app.ui')}">
     <a href class="auto">
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>
@@ -217,7 +217,7 @@
       </li>
     </ul>
   </li>
-  <li ng-class="{active:$state.includes('app.table')}">
+  <li ng-if="isContributor()" ng-class="{active:$state.includes('app.table')}">
     <a href class="auto">
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>
@@ -270,7 +270,7 @@
       </li>
     </ul>
   </li>
-  <li ng-class="{active:$state.includes('app.form')}">
+  <li ng-if="isContributor()" ng-class="{active:$state.includes('app.form')}">
     <a href class="auto">
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>
@@ -332,13 +332,13 @@
       </li>
     </ul>
   </li>
-  <li ui-sref-active="active">
+  <li ng-if="isContributor()" ui-sref-active="active">
     <a ui-sref="app.chart">
       <i class="glyphicon glyphicon-signal"></i>
       <span translate="aside.nav.components.CHART">Chart</span>
     </a>
   </li>
-  <li ng-class="{active:$state.includes('app.page')}">
+  <li ng-if="isContributor()" ng-class="{active:$state.includes('app.page')}">
     <a href class="auto">
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>
@@ -406,19 +406,19 @@
     </ul>
   </li>
 
-  <li class="line dk hidden-folded"></li>
+  <li ng-if="isContributor()" class="line dk hidden-folded"></li>
 
-  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">          
+  <li ng-if="isContributor()" class="hidden-folded padder m-t m-b-sm text-muted text-xs">
     <span translate="aside.nav.your_stuff.YOUR_STUFF">Your Stuff</span>
   </li>  
-  <li>
+  <li ng-if="isContributor()">
     <a ui-sref="app.page.profile">
       <i class="icon-user icon text-success-lter"></i>
       <b class="badge bg-success pull-right">30%</b>
       <span translate="aside.nav.your_stuff.PROFILE">Profile</span>
     </a>
   </li>
-  <li>
+  <li ng-if="isContributor()">
     <a ui-sref="app.docs">
       <i class="icon-question icon"></i>
       <span translate="aside.nav.your_stuff.DOCUMENTS">Documents</span>
