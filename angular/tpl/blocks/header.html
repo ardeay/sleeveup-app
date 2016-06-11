@@ -8,8 +8,7 @@
         </button>
         <!-- brand -->
         <a href="#/" class="navbar-brand text-lt">
-          <i class="fa fa-btc"></i>
-          <img src="img/logo.png" alt="." class="hide">
+          <img src="img/logo.png" alt="{{app.name}} Logo" >
           <span class="hidden-folded m-l-xs">{{app.name}}</span>
         </a>
         <!-- / brand -->
@@ -230,10 +229,10 @@
           <li class="dropdown" dropdown>
             <a href class="dropdown-toggle clear" dropdown-toggle>
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                <img src="img/a0.jpg" alt="...">
+                <img src="{{app.user.avatar}}" alt="{{app.user.username}} avatar">
                 <i class="on md b-white bottom"></i>
               </span>
-              <span class="hidden-sm hidden-md">John.Smith</span> <b class="caret"></b>
+              <span class="hidden-sm hidden-md">{{app.user.username}}</span> <b class="caret"></b>
             </a>
             <!-- dropdown -->
             <ul class="dropdown-menu animated fadeInRight w">
