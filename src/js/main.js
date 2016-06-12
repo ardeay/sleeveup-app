@@ -10,12 +10,14 @@ angular.module('app')
       if(isIE){ angular.element($window.document.body).addClass('ie');}
       if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
 
-      console.log($location.host());
+      // force HTTPS function, checks for local host for working locally
       var forceSSL = function () {
         if ($location.protocol() !== 'https' && $location.host() != '127.0.0.1') {
           $window.location.href = $location.absUrl().replace('http', 'https');
         }
       };
+
+      // forces HTTPS redirect
       forceSSL();
 
       // config
