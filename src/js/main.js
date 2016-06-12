@@ -3,12 +3,20 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$scope', '$translate', '$state', '$localStorage', '$window',
-    function(              $scope,   $translate,   $state, $localStorage,   $window) {
+  .controller('AppCtrl', ['$scope', '$translate', '$state', '$location', '$localStorage', '$window',
+    function(              $scope,   $translate,   $state, $location, $localStorage,   $window) {
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       if(isIE){ angular.element($window.document.body).addClass('ie');}
       if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
+
+      console.log($location.host());
+      var forceSSL = function () {
+        if ($location.protocol() !== 'https' && $location.host() != '127.0.0.1') {
+          $window.location.href = $location.absUrl().replace('http', 'https');
+        }
+      };
+      forceSSL();
 
       // config
       $scope.app = {
