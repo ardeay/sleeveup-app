@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$scope', '$translate', '$state', '$location', '$localStorage', '$window',
-    function(              $scope,   $translate,   $state, $location, $localStorage,   $window) {
+  .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$state', '$location', '$localStorage', '$window',
+    function($rootScope, $scope,   $translate,   $state, $location, $localStorage,   $window) {
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       if(isIE){ angular.element($window.document.body).addClass('ie');}
@@ -19,6 +19,8 @@ angular.module('app')
 
       // forces HTTPS redirect
       forceSSL();
+
+      $rootScope.api_endpoint_base = "https://www.echomtg.com/api/";
 
       // config
       $scope.app = {

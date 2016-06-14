@@ -1,7 +1,7 @@
 'use strict';
 
 // signup controller
-app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStorage', function($scope, $http, $state, $localStorage) {
+app.controller('SignupFormController', ['$rootScope','$scope', '$http', '$state', function($rootScope, $scope, $http, $state) {
     $scope.user = {};
     $scope.authError = null;
     // log user out
@@ -13,7 +13,7 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStor
         $scope.authError = null;
         // Try to create new user
         $http({
-            url: 'https://www.echomtg.com/api/user/register/',
+            url: api_endpoint_base + 'user/register/',
             method: "POST",
             params: {
                 email: $scope.user.email,
@@ -25,7 +25,7 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$localStor
             if (response.data && response.data.token) {
                 var token = response.data.token;
                 $http({
-                    url: 'https://www.echomtg.com/api/user/meta/',
+                    url: api_endpoint_base + 'user/meta/',
                     method: "GET",
                     params: {
                         auth: token
