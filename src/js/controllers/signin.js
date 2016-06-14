@@ -2,11 +2,11 @@
 
 /* Controllers */
   // signin controller
-app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStorage', function($scope, $http, $state, $localStorage) {
+app.controller('SigninFormController', ['$rootScope','$scope', '$http', '$state', function($rootScope, $scope, $http, $state) {
     //sign out the user
     localStorage.clear();
     delete $scope.app.user;
-
+console.log($rootScope);
     // setup user object
     $scope.user = {};
     $scope.authError = null;
@@ -14,7 +14,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStor
       $scope.authError = null;
       // Try to login
       $http({
-       url: 'https://www.echomtg.com/api/user/auth/', 
+       url: $rootScope.api_endpoint_base + 'user/auth/',
        method: "POST",
        params: {
          email: $scope.user.email,
@@ -26,7 +26,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$localStor
         if (response.data && response.data.token) {
           var token = response.data.token;
           $http({
-           url: 'https://www.echomtg.com/api/user/meta/',
+           url: $rootScope.api_endpoint_base + 'user/meta/',
            method: "GET",
            params: {
              auth: token
