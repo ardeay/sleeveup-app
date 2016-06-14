@@ -22,6 +22,10 @@ angular.module('app')
       url: '',
       templateUrl: layout
     })
+    .state('app.home', {
+      url: '/',
+      templateUrl: 'tpl/home.html'
+    })
     .state('app.dashboard-v1', {
       url: '/',
       templateUrl: 'tpl/app_dashboard_v1.html',

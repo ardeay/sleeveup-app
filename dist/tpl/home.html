@@ -1,0 +1,123 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3"><strong>Sleeveup.org</strong> <span class="pull-right">An open-source Magic:the Gathering deck building tool</span></h1>
+</div>
+<div class="wrapper-md">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel b-a">
+        <div class="panel-heading no-border bg-primary">          
+          <span class="text-lt">What is Sleeveup?</span>
+        </div>
+        <div class="item m-l-n-xxs m-r-n-xxs">
+          <div ng-init="x = 3" class="top text-right padder m-t-xs w-full">
+            <rating ng-model="x" max="5" state-on="'fa fa-star text-white'" state-off="'fa fa-star-o text-white'"></rating>
+          </div>
+          <div class="center text-center w-full" style="margin-top:-60px">
+            <div ui-jq="easyPieChart" ui-refresh="x" ui-options="{
+                percent: {{x*15}},
+                lineWidth: 60,
+                trackColor: 'rgba(255,255,255,0)',
+                barColor: 'rgba(35,183,229,0.7)',
+                scaleColor: false,
+                size: 120,
+                lineCap: 'butt',
+                rotate: 0,
+                animate: 1000
+              }" class="inline">
+            </div>
+          </div>
+          <div class="bottom wrapper bg-gd-dk text-white">            
+            <div class="text-u-c h3 m-b-sm text-primary-lter">A Deck Building aap for Magic the Gathering!</div>
+            <div>It's open source, so it's going to get better and better!</div>
+            <div>Sleeveup leverages EchoMTG's amazing API for deck building.</div>
+          </div>
+          <img src="img/echomtg-background.jpg" class="img-full">
+        </div>
+        <div class="hbox text-center b-b b-light text-sm">          
+          <a href class="col padder-v text-muted b-r b-light">
+            <i class="icon-plus block m-b-xs fa-2x"></i>
+            <span>Create an Account</span>
+          </a>
+          <a target="_blank" href="https://www.echomtg.com/api/" class="col padder-v text-muted b-r b-light">
+            <i class="glyphicon glyphicon-book block m-b-xs fa-2x"></i>
+            <span>View EchoMTG API</span>
+          </a>
+          <a target="_blank" href="https://github.com/sleeveup/sleeveup-app" class="col padder-v text-muted">
+            <i class="fa fa-github block m-b-xs fa-2x"></i>
+            <span>Contribute Code</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel b-a">
+            <div class="panel-heading bg-info dk no-border wrapper-lg">
+
+              <a href="https://github.com/iammenasco" target="_blank" class="btn btn-sm btn-icon btn-rounded btn-info m-l"><i class="fa github"></i></a>
+            </div>
+            <div class="text-center m-b clearfix">
+              <div class="thumb-lg avatar m-t-n-xxl">
+                <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/15486/profile/profile-512_1.jpg" alt="That's Brian Jumping for Joy!" class="b b-3x b-white">
+                <div class="h4 font-thin m-t-sm">@iammenasco!</div>
+              </div>
+            </div>
+            <div class="panel-footer bg-light lter wrapper">
+              <p> Sleeveup.org was start by @menesco, when he was searching to contribute to an open source project, he ran into EchoMTG's API and reach out to @teeg. They talked for a few minutes then @menasco started hacking away this amazing code base, and teeg got into it!
+              </p>
+            </div>
+           </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel no-border">
+            <div class="panel-heading bg-primary lt">
+              <div class="m-sm">
+                <span class="pull-right"><i class="fa fa-caret-up text-warning text-lg"></i></span>
+                <span class="h4 text-white">Sleeveup.org Project Stats</span>
+              </div>              
+              <div class="text-center m-t-md">
+                  <div ui-jq="sparkline" ui-options="
+                  [50.32,45.23,47.56,36.25,53.85,40.15,41.25,50.15,57.14,36.15,97.26,50.15,45.32,47.19,37.75,25.15,56.34,50.35,47.25,53.15], 
+                  {type:'line', height:80, width: '100%', lineWidth:4, lineColor:'#fff', spotColor:'#fff', fillColor:'', highlightLineColor:'#fff', spotRadius:6, minSpotColor:'{{app.color.warning}}', maxSpotColor:'{{app.color.info}}'}
+                  ">loading...</div>
+
+                  <div ui-jq="sparkline" ui-options="[ 10,9,11,10,11,10,12,10,9,10,11,9,8 ], 
+                  {type:'bar', height:60, barWidth:4, barSpacing:6, barColor:'{{app.color.primary}}'}
+                  " class="sparkline inline m-t m-b-n-sm"></div>
+              </div>
+            </div>
+            <div class="hbox bg-primary bg">
+              <div class="col wrapper">
+                <span>Decks</span>
+                <div class="h1 text-info font-thin">12,790</div>
+              </div>
+              <div class="col wrapper bg-info">
+                <span>Project Contributors</span>
+                <div class="h1 text-warning font-thin">5</div>
+              </div>
+            </div>
+            <div class="panel-footer bg-light lter wrapper">
+              <div class="row">
+                <div class="col-xs-4">
+                  <small class="text-muted block">Modern</small>
+                  <span class="text-md">1,500</span>
+                </div>
+                <div class="col-xs-4">
+                  <small class="text-muted block">Standard</small>
+                  <span class="text-md">10,430</span>
+                </div>
+                <div class="col-xs-4">
+                  <small class="text-muted block">Legacy</small>
+                  <span class="text-md">400</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
