@@ -267,6 +267,13 @@ angular.module('app')
       resolve: load(['moment','fullcalendar','ui.calendar','js/app/calendar/calendar.js'])
     })
     
+    // decks
+    .state('app.decks', {
+      url: '/decks',
+      templateUrl: 'tpl/apps_decks.html',
+      resolve: load( ['js/app/decks/decks.js','moment'] )
+    })
+    
     // mail
     .state('app.mail', {
       abstract: true,

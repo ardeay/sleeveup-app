@@ -60,6 +60,7 @@ angular.module('app')
       if ( $scope.isLoggedIn() )  {
         var userObject = localStorage.getObject('usermeta');
         $scope.app.user = userObject;
+        $scope.app.auth = localStorage.auth_token;
       } else {
         $location.path('access/signin')
       }
