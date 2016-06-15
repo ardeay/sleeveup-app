@@ -25,6 +25,7 @@ console.log($rootScope);
       .then(function(response) {
         if (response.data && response.data.token) {
           var token = response.data.token;
+          $scope.auth = token;
           $http({
            url: $rootScope.api_endpoint_base + 'user/meta/',
            method: "GET",
@@ -35,6 +36,7 @@ console.log($rootScope);
           .then(function(response) {
               // set variable locally for quick access
               localStorage.setItem('auth_token',token);
+              $scope.auth = token;
               // uses custom function that extends the local storage base functionality
               localStorage.setObject('usermeta',response.data.user);
               $scope.app.user = response.data.user;
