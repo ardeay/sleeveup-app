@@ -61,7 +61,7 @@ angular.module('app')
         var userObject = localStorage.getObject('usermeta');
         $scope.app.user = userObject;
       } else {
-        $state.go('access.signin')
+        $location.path('access/signin')
       }
 
 
