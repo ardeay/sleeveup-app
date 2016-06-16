@@ -56,16 +56,14 @@ angular.module('app')
           name: 'ngGrid',
           files: [
               '/libs/angular/ng-grid/build/ng-grid.min.js',
-              '/libs/angular/ng-grid/ng-grid.min.css',
-              '/libs/angular/ng-grid/ng-grid.bootstrap.css'
+              '/libs/angular/ng-grid/ng-grid.min.css'
           ]
       },
       {
           name: 'ui.grid',
           files: [
               '/libs/angular/angular-ui-grid/ui-grid.min.js',
-              '/libs/angular/angular-ui-grid/ui-grid.min.css',
-              '/libs/angular/angular-ui-grid/ui-grid.bootstrap.css'
+              '/libs/angular/angular-ui-grid/ui-grid.min.css'
           ]
       },
       {
@@ -166,7 +164,8 @@ angular.module('app')
       {
           name: 'smart-table',
           files: [
-              '/libs/angular/angular-smart-table/dist/smart-table.min.js'
+              '/libs/angular/angular-smart-table/dist/smart-table.min.js',
+              '/libs/angular/angular-smart-table/dist/smart-table.debug.js'
           ]
       },
       {
