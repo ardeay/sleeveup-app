@@ -25,7 +25,6 @@
             <div class="padder">
               <div class="list-group">
                 <a ng-repeat="deck in decks" class="list-group-item b-l-{{deck.color}} b-l-3x hover-anchor" ng-class="{'hover': deck.selected }" ng-click="selectDeck(deck)">
-                  <span ng-click='deleteNote(deck)' class="pull-right text-muted hover-action"><i class="fa fa-times"></i></span>
                   <span class="block text-ellipsis">{{ deck.name ? deck.name : 'Empty deck' }}</span>
                   <small class="text-muted">{{ deck.date_created | fromNow }}</small>
                 </a>
@@ -51,9 +50,14 @@
         </div>
       </div>
       <div class="row-row">
-        <div class="cell">
-          <div class="cell-inner">
-            Total Cards: {{selectedDeck.total_cards}}
+        <div class="cell-inner">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              {{selectedDeck.name}}
+            </div>
+            <div class="table-responsive">
+          	  <div ui-grid="gridOptions"></div>
+          	</div>
           </div>
         </div>
       </div>

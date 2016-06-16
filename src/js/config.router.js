@@ -271,7 +271,7 @@ angular.module('app')
     .state('app.decks', {
       url: '/decks',
       templateUrl: 'tpl/apps_decks.html',
-      resolve: load( ['js/app/decks/decks.js','moment'] )
+      resolve: load( ['js/app/decks/decks.js','moment', 'ui.grid'])
     })
     
     // mail
