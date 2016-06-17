@@ -57,17 +57,17 @@
     <!-- nav -->
 
     <!-- aside footer -->
-    <div class="wrapper m-t">
+    <div ng-if="isContributor()" class="wrapper m-t">
       <div class="text-center-folded">
-        <span class="pull-right pull-none-folded" ng-scope="user.username">60%</span>
-        <span class="hidden-folded" translate="aside.MILESTONE">Milestone</span>
+        <span class="hidden-folded">Milestone:</span>
       </div>
-      <progressbar value="60" class="progress-xxs m-t-sm dk" type="info"></progressbar>
-      <div class="text-center-folded">
-        <span class="pull-right pull-none-folded">35%</span>
-        <span class="hidden-folded" translate="aside.RELEASE">Release</span>
+      <div ng-repeat="milestone in milestones">
+        <div class="text-center-folded" title="{{milestone.description}}">
+          <a href="{{milestone.html_url}}" target="_blank"><strong class="hidden-folded">{{milestone.title}}</strong></a>
+        </div>
+        <span class="pull-right pull-none-folded">{{milestone.percent}}%</span>
+        <progressbar value="milestone.percent" class="progress-xxs m-t-sm dk" type="{{milestone.type}}"></progressbar>
       </div>
-      <progressbar value="35" class="progress-xxs m-t-sm dk" type="primary"></progressbar>
     </div>
     <!-- / aside footer -->
   </div>

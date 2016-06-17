@@ -6,7 +6,6 @@ app.controller('SigninFormController', ['$rootScope','$scope', '$http', '$state'
     //sign out the user
     localStorage.clear();
     delete $scope.app.user;
-console.log($rootScope);
     // setup user object
     $scope.user = {};
     $scope.authError = null;
@@ -38,7 +37,7 @@ console.log($rootScope);
               // uses custom function that extends the local storage base functionality
               localStorage.setObject('usermeta',response.data.user);
               $scope.app.user = response.data.user;
-              $state.go('app.dashboard-v1');
+              $state.go('app.home');
           })
         }
       }, function(response) {

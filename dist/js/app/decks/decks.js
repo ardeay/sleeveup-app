@@ -1,5 +1,5 @@
-app.controller('DeckCtrl', ['$rootScope', '$localStorage', '$scope', '$http', '$log', 'uiGridConstants', function($rootScope, $localStorage, $scope, $http, $log, uiGridConstants) {
-  $scope.listOfCards = [{name: ''}];
+app.controller('DeckCtrl', ['$location', '$rootScope', '$localStorage', '$scope', '$http', '$log', 'uiGridConstants', 
+function($location, $rootScope, $localStorage, $scope, $http, $log, uiGridConstants) {
   $scope.gridOptions = {
     enableFiltering: true,
     showFooter: true,
@@ -35,12 +35,11 @@ app.controller('DeckCtrl', ['$rootScope', '$localStorage', '$scope', '$http', '$
      method: "GET",
      params: {
        list: $scope.deck.id,
-       auth: $scope.app.auth
+       auth: $rootScope.getToken()
      }
    }).then(function (resp) {
       $scope.selectedDeck = resp.data.list;
       $scope.listOfCards = createCardArray($scope.selectedDeck);
-      console.log($scope.selectedDeck)
       $scope.gridOptions = {
         data: $scope.listOfCards
       };

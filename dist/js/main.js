@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-.controller('AppCtrl', ['$rootScope','$scope', '$translate', '$state', '$location', '$localStorage', '$window',
-function($rootScope, $scope,   $translate,   $state, $location, $localStorage,   $window) {
+.controller('AppCtrl', ['$rootScope','$scope', '$translate', '$state', '$location', '$localStorage', '$window', '$http',
+function($rootScope, $scope,   $translate, $state, $location, $localStorage, $window, $http) {
   // add 'ie' classes to html
   var isIE = !!navigator.userAgent.match(/MSIE/i);
   if(isIE){ angular.element($window.document.body).addClass('ie');}
@@ -80,9 +80,37 @@ function($rootScope, $scope,   $translate,   $state, $location, $localStorage,  
     } else {
       return false;
     }
-    
   }
   
+  var milestone = function() {
+    $http({
+     url: 'https://api.github.com/repos/sleeveup/sleeveup-app/milestones',
+     method: "GET"
+   }).then(function (response) {
+      $scope.milestones = response.data;
+      for (var i = 0; i < $scope.milestones.length; i++) {
+        var closed = response.data[i].closed_issues;
+        var open = response.data[i].open_issues;
+        var total = closed + open;
+        var percent = 0;
+        if (total > 0) {
+          percent = closed / total * 100;
+        }
+        if (percent < 32) {
+          $scope.milestones[i].type = 'danger';
+        } else if (percent > 33 && percent < 65) {
+          $scope.milestones[i].type = 'warning';
+        } else if (percent > 66 && percent < 99) {
+          $scope.milestones[i].type = 'info';
+        } else {
+          $scope.milestones[i].type = 'success';
+        }
+        $scope.milestones[i].percent = percent;
+      }
+    });
+  }
+  
+  milestone();
   
   // save settings to local storage
   if ( angular.isDefined($localStorage.settings) ) {
