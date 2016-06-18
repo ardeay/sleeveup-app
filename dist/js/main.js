@@ -16,7 +16,7 @@ function($rootScope, $scope,   $translate, $state, $location, $localStorage, $wi
       $window.location.href = $location.absUrl().replace('http', 'https');
     }
   };
-  
+
   // forces HTTPS redirect
   forceSSL();
   

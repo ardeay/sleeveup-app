@@ -30,7 +30,8 @@
   <link rel="stylesheet" href="/libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="/libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="/libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
-  
+
+
   <!-- build:css css/app.min.css -->
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <link rel="stylesheet" href="css/app.css" type="text/css" />
@@ -62,9 +63,14 @@
   <script src="js/directives/ui-shift.js"></script>
   <script src="js/directives/ui-toggleclass.js"></script>
   <script src="js/controllers/bootstrap.js"></script>
-<!-- endbuild -->
+  <script src="/bower_components/elasticsearch/elasticsearch.js"></script>
+  <!-- endbuild -->
   <!-- Lazy loading -->
   <script type="text/javascript">
+    var client = elasticsearch.Client({
+      host: 'localhost:9200'
+    });
+
     window.doorbellOptions = {
         appKey: 'kT1xtRUUC8qajhmiYTVP3hYeHoY7QsoItVwIvS4AdkWssk8LTuRXZl1fnFWPuV0v'
     };
