@@ -33,6 +33,7 @@
     "grunt-swig": "^0.2.1",
     "gruntfile-gtx": "^0.3.0",
     "load-grunt-configs": "^1.0.0",
-    "require-directory": "^2.0.0"
+    "require-directory": "^2.0.0",
+    "elasticsearch": ">=1.1.0"
   }
 }
