@@ -22,7 +22,7 @@ NVM is a node version manager https://github.com/creationix/nvm
 ```brew install nvm```
 
 Install Node with NVM
-
+    
 ```nvm install 5.0```
 
 ```nvm use 5.0```
