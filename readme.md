@@ -1,8 +1,8 @@
 # Sleeve Up App
 
-### A Magic: The Gathering deck building application using https://www.echomtg.com
+### A Magic: The Gathering deck building application using [echomtg.com](https://www.echomtg.com/api/) as the data layer
 
-
+Sleeveup is an opensource project; anyone can contribute. If you would like to contribute, follow the steps below.
 
 ## Setting up a OSX Environment
 Open your terminal
